@@ -34,6 +34,7 @@ import UIKit
 enum LEActivityStyle {
     case walking
     case spinner
+    case gradient
     case cube
     case wave
     case bouble
