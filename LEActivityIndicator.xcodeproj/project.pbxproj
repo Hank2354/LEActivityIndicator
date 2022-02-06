@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41A382AF27AF0AB2007E3697 /* WalkingActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A382AE27AF0AB2007E3697 /* WalkingActivityIndicator.swift */; };
+		41A382B227AFD4CF007E3697 /* LEActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A382B127AFD4CF007E3697 /* LEActivityIndicator.swift */; };
+		41A382B427AFFCA5007E3697 /* LEEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A382B327AFFCA5007E3697 /* LEEntities.swift */; };
+		41A382B627B011DD007E3697 /* SpinnerActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A382B527B011DC007E3697 /* SpinnerActivityIndicator.swift */; };
 		41E4E94327AC6DFD004FC90E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E4E94227AC6DFD004FC90E /* AppDelegate.swift */; };
 		41E4E94527AC6DFD004FC90E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E4E94427AC6DFD004FC90E /* SceneDelegate.swift */; };
 		41E4E94727AC6DFD004FC90E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E4E94627AC6DFD004FC90E /* ViewController.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41A382AE27AF0AB2007E3697 /* WalkingActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingActivityIndicator.swift; sourceTree = "<group>"; };
+		41A382B127AFD4CF007E3697 /* LEActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEActivityIndicator.swift; sourceTree = "<group>"; };
+		41A382B327AFFCA5007E3697 /* LEEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEEntities.swift; sourceTree = "<group>"; };
+		41A382B527B011DC007E3697 /* SpinnerActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerActivityIndicator.swift; sourceTree = "<group>"; };
 		41E4E93F27AC6DFD004FC90E /* LEActivityIndicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LEActivityIndicator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E4E94227AC6DFD004FC90E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41E4E94427AC6DFD004FC90E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +95,10 @@
 			isa = PBXGroup;
 			children = (
 				41E4E94627AC6DFD004FC90E /* ViewController.swift */,
+				41A382B127AFD4CF007E3697 /* LEActivityIndicator.swift */,
+				41A382AE27AF0AB2007E3697 /* WalkingActivityIndicator.swift */,
+				41A382B527B011DC007E3697 /* SpinnerActivityIndicator.swift */,
+				41A382B327AFFCA5007E3697 /* LEEntities.swift */,
 			);
 			path = LEActivityIndicatorDemo;
 			sourceTree = "<group>";
@@ -162,7 +174,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A382AF27AF0AB2007E3697 /* WalkingActivityIndicator.swift in Sources */,
+				41A382B627B011DD007E3697 /* SpinnerActivityIndicator.swift in Sources */,
 				41E4E94727AC6DFD004FC90E /* ViewController.swift in Sources */,
+				41A382B227AFD4CF007E3697 /* LEActivityIndicator.swift in Sources */,
+				41A382B427AFFCA5007E3697 /* LEEntities.swift in Sources */,
 				41E4E94327AC6DFD004FC90E /* AppDelegate.swift in Sources */,
 				41E4E94527AC6DFD004FC90E /* SceneDelegate.swift in Sources */,
 			);
