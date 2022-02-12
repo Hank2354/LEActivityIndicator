@@ -58,6 +58,9 @@ class WalkingActivityIndicator: UIView, LEActivity {
         
         timer?.invalidate()
         timer = nil
+        firstLine.removeAllAnimations()
+        secondLine.removeAllAnimations()
+        thirdLine.removeAllAnimations()
     }
 
     // MARK: - Configuration methods
