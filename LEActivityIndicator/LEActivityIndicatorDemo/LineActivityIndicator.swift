@@ -68,8 +68,6 @@ class LineActivityIndicator: UIView, LEActivity {
     // MARK: - Configuration methods
     private func configureLayers(_ size: LEActivitySize) {
         // SETUP BACKGROUND LAYER
-        backgroundLayer.backgroundColor = UIColor.white.cgColor
-        
         backgroundLayer.frame = CGRect(origin: .zero, size: .init(width: bounds.width,
                                                              height: bounds.height / 10))
         
@@ -79,7 +77,6 @@ class LineActivityIndicator: UIView, LEActivity {
         backgroundLayer.masksToBounds = true
         
         // SETUP INPUT LAYER
-        inputLayer.backgroundColor = UIColor.blue.cgColor
         inputLayer.frame = CGRect(origin: .zero,
                                   size: .init(width: backgroundLayer.bounds.width / 5,
                                                              height: backgroundLayer.bounds.height))
@@ -95,7 +92,8 @@ class LineActivityIndicator: UIView, LEActivity {
     }
     
     private func setupColors(_ colorSet: LEActivityColorSet) {
-        
+        backgroundLayer.backgroundColor = colorSet.mainColor.cgColor
+        inputLayer.backgroundColor = colorSet.secondMainColor.cgColor
     }
     
     // MARK: - Animation bodies
