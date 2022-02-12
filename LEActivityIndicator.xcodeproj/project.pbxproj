@@ -10,6 +10,7 @@
 		4188909627B7E05400EC64FE /* CubeActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188909527B7E05400EC64FE /* CubeActivityIndicator.swift */; };
 		4188909827B8226A00EC64FE /* LineActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188909727B8226A00EC64FE /* LineActivityIndicator.swift */; };
 		4188909A27B82D8400EC64FE /* BoubleActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188909927B82D8400EC64FE /* BoubleActivityIndicator.swift */; };
+		4188909C27B837F600EC64FE /* WaveActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188909B27B837F600EC64FE /* WaveActivityIndicator.swift */; };
 		41A382AF27AF0AB2007E3697 /* WalkingActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A382AE27AF0AB2007E3697 /* WalkingActivityIndicator.swift */; };
 		41A382B227AFD4CF007E3697 /* LEActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A382B127AFD4CF007E3697 /* LEActivityIndicator.swift */; };
 		41A382B427AFFCA5007E3697 /* LEEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A382B327AFFCA5007E3697 /* LEEntities.swift */; };
@@ -27,6 +28,7 @@
 		4188909527B7E05400EC64FE /* CubeActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeActivityIndicator.swift; sourceTree = "<group>"; };
 		4188909727B8226A00EC64FE /* LineActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineActivityIndicator.swift; sourceTree = "<group>"; };
 		4188909927B82D8400EC64FE /* BoubleActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoubleActivityIndicator.swift; sourceTree = "<group>"; };
+		4188909B27B837F600EC64FE /* WaveActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveActivityIndicator.swift; sourceTree = "<group>"; };
 		41A382AE27AF0AB2007E3697 /* WalkingActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingActivityIndicator.swift; sourceTree = "<group>"; };
 		41A382B127AFD4CF007E3697 /* LEActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEActivityIndicator.swift; sourceTree = "<group>"; };
 		41A382B327AFFCA5007E3697 /* LEEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEEntities.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				4188909527B7E05400EC64FE /* CubeActivityIndicator.swift */,
 				4188909727B8226A00EC64FE /* LineActivityIndicator.swift */,
 				4188909927B82D8400EC64FE /* BoubleActivityIndicator.swift */,
+				4188909B27B837F600EC64FE /* WaveActivityIndicator.swift */,
 				41A382B327AFFCA5007E3697 /* LEEntities.swift */,
 			);
 			path = LEActivityIndicatorDemo;
@@ -197,6 +200,7 @@
 				4188909A27B82D8400EC64FE /* BoubleActivityIndicator.swift in Sources */,
 				4188909627B7E05400EC64FE /* CubeActivityIndicator.swift in Sources */,
 				41E4E94527AC6DFD004FC90E /* SceneDelegate.swift in Sources */,
+				4188909C27B837F600EC64FE /* WaveActivityIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

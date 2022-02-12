@@ -61,7 +61,9 @@ class BoubleActivityIndicator: UIView, LEActivity {
         self.isHidden = true
         isAnimationStarted = false
         
-        self.layer.removeAllAnimations()
+        timer?.invalidate()
+        timer = nil
+        self.boubleLayer.removeAllAnimations()
     }
     
     // MARK: - Configuration methods

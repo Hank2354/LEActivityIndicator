@@ -67,6 +67,8 @@ class CubeActivityIndicator: UIView, LEActivity {
         self.isHidden = true
         isAnimationStarted = false
         
+        timer?.invalidate()
+        timer = nil
         self.layer.removeAllAnimations()
     }
     

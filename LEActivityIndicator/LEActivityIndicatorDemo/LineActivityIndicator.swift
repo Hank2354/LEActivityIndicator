@@ -62,7 +62,9 @@ class LineActivityIndicator: UIView, LEActivity {
         self.isHidden = true
         isAnimationStarted = false
         
-        self.layer.removeAllAnimations()
+        timer?.invalidate()
+        timer = nil
+        self.inputLayer.removeAllAnimations()
     }
     
     // MARK: - Configuration methods
