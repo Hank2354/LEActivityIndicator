@@ -12,11 +12,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .gray
-        let someView = LEActivityIndicator(style: .spinner,
+        let someView = LEActivityIndicator(style: .cube,
                                            size: .small,
-                                           colorSet: .init(mainColor: .white,
-                                                           secondMainColor: .red,
-                                                           complementaryColor: nil))
+                                           colorSet: .init(mainColor: .red,
+                                                           secondMainColor: .green,
+                                                           complementaryColor: .blue))
         view.addSubview(someView)
         someView.showActivityIndicator()
         someView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

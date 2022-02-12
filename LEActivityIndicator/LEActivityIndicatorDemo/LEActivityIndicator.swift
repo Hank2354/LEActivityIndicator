@@ -31,7 +31,7 @@ class LEActivityIndicator: UIView {
         case .gradient:
             currentActivity = GradientActivityIndicator(size: size, colorSet: colorSet)
         case .cube:
-            currentActivity = GradientActivityIndicator(size: size, colorSet: colorSet)
+            currentActivity = CubeActivityIndicator(size: size, colorSet: colorSet)
         case .wave:
             currentActivity = WalkingActivityIndicator(size: size, colorSet: colorSet)
         case .bouble:
