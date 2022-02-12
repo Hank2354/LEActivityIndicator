@@ -12,8 +12,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .gray
-        let someView = LEActivityIndicator(style: .cube,
-                                           size: .small,
+        let someView = LEActivityIndicator(style: .line,
+                                           size: .medium,
                                            colorSet: .init(mainColor: .red,
                                                            secondMainColor: .green,
                                                            complementaryColor: .blue))

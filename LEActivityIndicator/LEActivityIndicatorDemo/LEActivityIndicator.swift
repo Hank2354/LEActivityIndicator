@@ -37,7 +37,7 @@ class LEActivityIndicator: UIView {
         case .bouble:
             currentActivity = WalkingActivityIndicator(size: size, colorSet: colorSet)
         case .line:
-            currentActivity = WalkingActivityIndicator(size: size, colorSet: colorSet)
+            currentActivity = LineActivityIndicator(size: size, colorSet: colorSet)
         }
         
         self.addSubview(currentActivity)
