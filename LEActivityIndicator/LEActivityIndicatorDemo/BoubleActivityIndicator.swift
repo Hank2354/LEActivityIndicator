@@ -45,9 +45,13 @@ class BoubleActivityIndicator: UIView, LEActivity {
         
         self.isHidden = false
         isAnimationStarted = true
-        
+        boubleLayer.add(transformInAnimation, forKey: nil)
+        transformOutAnimation.beginTime = CACurrentMediaTime() + blockAnimateDuration
+        boubleLayer.add(transformOutAnimation, forKey: nil)
         timer = Timer.scheduledTimer(withTimeInterval: blockAnimateDuration * 2, repeats: true) { _ in
-           
+            self.boubleLayer.add(self.transformInAnimation, forKey: nil)
+            self.transformOutAnimation.beginTime = CACurrentMediaTime() + self.blockAnimateDuration
+            self.boubleLayer.add(self.transformOutAnimation, forKey: nil)
         }
     }
     
@@ -62,29 +66,32 @@ class BoubleActivityIndicator: UIView, LEActivity {
     
     // MARK: - Configuration methods
     private func configureLayers(_ size: LEActivitySize) {
-        
+        boubleLayer.frame = .init(origin: center, size: bounds.size)
+        boubleLayer.position = center
+        boubleLayer.cornerRadius = bounds.width / 2
+        layer.addSublayer(boubleLayer)
     }
     
     private func setupColors(_ colorSet: LEActivityColorSet) {
-        
+        boubleLayer.backgroundColor = colorSet.mainColor.cgColor
     }
     
     // MARK: - Animation bodies
     private func setupTransformInAnimation() -> CABasicAnimation {
         let animation = CASpringAnimation(keyPath: "transform.scale")
         animation.duration = blockAnimateDuration
-//        animation.fromValue = bounds.maxX
-//        animation.toValue = bounds.minX
+        animation.fromValue = 1
+        animation.toValue = 0.3
         animation.fillMode = .forwards
         animation.isRemovedOnCompletion = false
         return animation
     }
     
     private func setupTransformOutAnimation() -> CABasicAnimation {
-        let animation = CABasicAnimation(keyPath: "transform.scale")
+        let animation = CASpringAnimation(keyPath: "transform.scale")
         animation.duration = blockAnimateDuration
-//        animation.fromValue = bounds.minX
-//        animation.toValue = bounds.maxX
+        animation.fromValue = 0.3
+        animation.toValue = 1
         animation.fillMode = .forwards
         animation.isRemovedOnCompletion = false
         return animation
