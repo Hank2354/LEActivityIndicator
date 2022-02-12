@@ -11,12 +11,11 @@ import UIKit
 class LineActivityIndicator: UIView, LEActivity {
     
     // MARK: - Internal properties
-    let blockAnimateDuration: CFTimeInterval = 0.6
+    let blockAnimateDuration: CFTimeInterval = 0.3
     
     // MARK: - Private properties
     private var moveToLeftAnimation: CABasicAnimation!
     private var moveToRightAnimation: CABasicAnimation!
-    private var transformAnimation: CABasicAnimation!
     private var isAnimationStarted: Bool = false
     private var timer: Timer?
     
@@ -33,7 +32,7 @@ class LineActivityIndicator: UIView, LEActivity {
         setupColors(colorSet)
         moveToLeftAnimation = setupMoveToLeftAnimation()
         moveToRightAnimation = setupMoveToRightAnimation()
-        transformAnimation = setupTransformAnimation()
+        
         self.isHidden = true
     }
     
@@ -47,7 +46,14 @@ class LineActivityIndicator: UIView, LEActivity {
         
         self.isHidden = false
         isAnimationStarted = true
-        // SHOW
+        inputLayer.add(moveToRightAnimation, forKey: nil)
+        moveToLeftAnimation.beginTime = CACurrentMediaTime() + blockAnimateDuration
+        inputLayer.add(moveToLeftAnimation, forKey: nil)
+        timer = Timer.scheduledTimer(withTimeInterval: blockAnimateDuration * 2, repeats: true) { _ in
+            self.inputLayer.add(self.moveToRightAnimation, forKey: nil)
+            self.moveToLeftAnimation.beginTime = CACurrentMediaTime() + self.blockAnimateDuration
+            self.inputLayer.add(self.moveToLeftAnimation, forKey: nil)
+        }
     }
     
     func hideActivity() {
@@ -70,11 +76,12 @@ class LineActivityIndicator: UIView, LEActivity {
         backgroundLayer.position = .init(x: bounds.midX, y: bounds.midY)
         
         backgroundLayer.cornerRadius = backgroundLayer.frame.height / 2
+        backgroundLayer.masksToBounds = true
         
         // SETUP INPUT LAYER
         inputLayer.backgroundColor = UIColor.blue.cgColor
         inputLayer.frame = CGRect(origin: .zero,
-                                  size: .init(width: backgroundLayer.bounds.width / 10,
+                                  size: .init(width: backgroundLayer.bounds.width / 5,
                                                              height: backgroundLayer.bounds.height))
         
         inputLayer.position = .init(x: backgroundLayer.bounds.minX,
@@ -94,6 +101,9 @@ class LineActivityIndicator: UIView, LEActivity {
     // MARK: - Animation bodies
     private func setupMoveToLeftAnimation() -> CABasicAnimation {
         let animation = CABasicAnimation(keyPath: "position.x")
+        animation.duration = blockAnimateDuration
+        animation.fromValue = bounds.maxX
+        animation.toValue = bounds.minX
         animation.fillMode = .forwards
         animation.isRemovedOnCompletion = false
         return animation
@@ -101,13 +111,9 @@ class LineActivityIndicator: UIView, LEActivity {
     
     private func setupMoveToRightAnimation() -> CABasicAnimation {
         let animation = CABasicAnimation(keyPath: "position.x")
-        animation.fillMode = .forwards
-        animation.isRemovedOnCompletion = false
-        return animation
-    }
-    
-    private func setupTransformAnimation() -> CABasicAnimation {
-        let animation = CABasicAnimation(keyPath: "transform.scale.x")
+        animation.duration = blockAnimateDuration
+        animation.fromValue = bounds.minX
+        animation.toValue = bounds.maxX
         animation.fillMode = .forwards
         animation.isRemovedOnCompletion = false
         return animation
