@@ -147,8 +147,8 @@ class CubeActivityIndicator: UIView, LEActivity {
     
     private func setupMoveUpAnimation() -> CABasicAnimation {
         let moveUpAnimtation = CABasicAnimation(keyPath: "position.y")
-        moveUpAnimtation.fromValue = 0
-        moveUpAnimtation.toValue = -20
+        moveUpAnimtation.fromValue = bounds.midY
+        moveUpAnimtation.toValue = -1
         moveUpAnimtation.duration = blockAnimateDuration / 2
         moveUpAnimtation.fillMode = .forwards
         moveUpAnimtation.isRemovedOnCompletion = false
@@ -157,8 +157,8 @@ class CubeActivityIndicator: UIView, LEActivity {
     
     private func setupMoveDownAnimation() -> CABasicAnimation {
         let moveDownAnimtation = CABasicAnimation(keyPath: "position.y")
-        moveDownAnimtation.fromValue = -20
-        moveDownAnimtation.toValue = 0
+        moveDownAnimtation.fromValue = -1
+        moveDownAnimtation.toValue = bounds.midY
         moveDownAnimtation.duration = blockAnimateDuration / 2
         moveDownAnimtation.fillMode = .forwards
         moveDownAnimtation.isRemovedOnCompletion = false
