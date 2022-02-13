@@ -23,7 +23,7 @@ class SpinnerActivityIndicator: UIView, LEActivity {
     required init(size: LEActivitySize, colorSet: LEActivityColorSet) {
         super.init(frame: CGRect(origin: .zero,
                                  size: size.getCurrentSize()))
-        configureLayers(size)
+        configureLayers()
         setupColors(colorSet)
         rotateAnimation = setupRotateAnimation()
         self.isHidden = true
@@ -53,7 +53,7 @@ class SpinnerActivityIndicator: UIView, LEActivity {
     }
     
     // MARK: - Configuration methods
-    private func configureLayers(_ size: LEActivitySize) {
+    private func configureLayers() {
         let mainCirclePath = UIBezierPath(arcCenter: self.center, radius: self.frame.size.width / 2, startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
         mainCircleShapeLayer.path = mainCirclePath.cgPath
         mainCircleShapeLayer.fillColor = UIColor.clear.cgColor

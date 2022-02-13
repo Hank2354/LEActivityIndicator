@@ -28,7 +28,7 @@ class LineActivityIndicator: UIView, LEActivity {
                                  size: size.getCurrentSize()))
         backgroundColor = .clear
         
-        configureLayers(size)
+        configureLayers()
         setupColors(colorSet)
         moveToLeftAnimation = setupMoveToLeftAnimation()
         moveToRightAnimation = setupMoveToRightAnimation()
@@ -68,7 +68,7 @@ class LineActivityIndicator: UIView, LEActivity {
     }
     
     // MARK: - Configuration methods
-    private func configureLayers(_ size: LEActivitySize) {
+    private func configureLayers() {
         // SETUP BACKGROUND LAYER
         backgroundLayer.frame = CGRect(origin: .zero, size: .init(width: bounds.width,
                                                              height: bounds.height / 10))

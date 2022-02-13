@@ -27,7 +27,7 @@ class WaveActivityIndicator: UIView, LEActivity {
                                  size: size.getCurrentSize()))
         backgroundColor = .clear
         
-        configureLayers(size)
+        configureLayers()
         setupColors(colorSet)
         positionAnimation = setupPositionAnimation()
         
@@ -57,7 +57,7 @@ class WaveActivityIndicator: UIView, LEActivity {
     }
     
     // MARK: - Configuration methods
-    private func configureLayers(_ size: LEActivitySize) {
+    private func configureLayers() {
         sinLineLayer.fillColor = UIColor.clear.cgColor
         sinLineLayer.strokeColor = UIColor.blue.cgColor
         sinLineLayer.lineWidth = bounds.height / 10
