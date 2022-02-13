@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .gray
         let someView = LEActivityIndicator(style: .defaultStyle,
-                                           size: .large,
+                                           size: .extraLarge,
                                            colorSet: .init(mainColor: .blue,
                                                            secondMainColor: .green,
                                                            complementaryColor: .blue))
