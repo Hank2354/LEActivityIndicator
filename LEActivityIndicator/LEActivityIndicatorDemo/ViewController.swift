@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     private let titleLabel = UILabel()
     private var topStack: UIStackView!
     private var bottomStack: UIStackView!
+    private var toggleAnimationButton = UIButton(type: .system)
+    
     private let indicators: [LEActivityIndicator] = [
         LEActivityIndicator(style: .defaultStyle,
                             size: .medium,
@@ -30,7 +32,7 @@ class ViewController: UIViewController {
                                                          complementaryColor: nil)),
         LEActivityIndicator(style: .wave,
                             size: .medium,
-                            colorSet: LEActivityColorSet(mainColor: UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1),
+                            colorSet: LEActivityColorSet(mainColor: UIColor(red: 0.110, green: 0.110, blue: 0.110, alpha: 1),
                                                          secondMainColor: UIColor(red: 0.298, green: 0.459, blue: 0.949, alpha: 1),
                                                          complementaryColor: nil)),
         LEActivityIndicator(style: .bouble,
@@ -55,6 +57,20 @@ class ViewController: UIViewController {
                                                          complementaryColor: UIColor(red: 0.476, green: 0.193, blue: 0.495, alpha: 1))),
     ]
     
+    private var isAnimationEnabled: Bool = true {
+        didSet {
+            if isAnimationEnabled {
+                for indicator in indicators {
+                    indicator.showActivityIndicator()
+                }
+            } else {
+                for indicator in indicators {
+                    indicator.hideActivityIndicator()
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray
@@ -72,13 +88,27 @@ class ViewController: UIViewController {
         titleLabel.textColor = .systemGray5
         titleLabel.font = UIFont.systemFont(ofSize: 21, weight: .bold)
         titleLabel.textAlignment = .center
-       
+        
+        // Setup button
+        toggleAnimationButton.translatesAutoresizingMaskIntoConstraints = false
+        toggleAnimationButton.layer.cornerRadius = 10
+        toggleAnimationButton.setTitle("Toggle animation", for: .normal)
+        toggleAnimationButton.setTitleColor(.darkGray, for: .normal)
+        toggleAnimationButton.layer.borderWidth = 1
+        toggleAnimationButton.layer.borderColor = UIColor.systemGray5.cgColor
+        toggleAnimationButton.backgroundColor = .clear
+        toggleAnimationButton.addTarget(self, action: #selector(toggleAnimation), for: .touchUpInside)
+        
         // Setup indicators view
         var indicatorViews = [PresentationIndicatorView]()
         
         for indicator in indicators {
             let view = PresentationIndicatorView(indicator: indicator)
             indicatorViews.append(view)
+        }
+        
+        for view in indicatorViews {
+            view.addTarget(self, action: #selector(didTapIndicatorView(_:)), for: .touchUpInside)
         }
         
         topStack = UIStackView(arrangedSubviews: [
@@ -109,6 +139,7 @@ class ViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(topStack)
         view.addSubview(bottomStack)
+        view.addSubview(toggleAnimationButton)
     }
     
     fileprivate func setupLayout() {
@@ -124,8 +155,53 @@ class ViewController: UIViewController {
         bottomStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         bottomStack.topAnchor.constraint(equalTo: topStack.bottomAnchor, constant: 30).isActive = true
         bottomStack.heightAnchor.constraint(equalTo: topStack.widthAnchor, multiplier: 0.25).isActive = true
+        
+        toggleAnimationButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        toggleAnimationButton.heightAnchor.constraint(equalTo: toggleAnimationButton.widthAnchor, multiplier: 0.25).isActive = true
+        toggleAnimationButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
+        toggleAnimationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
+    
+    @objc func toggleAnimation() {
+        isAnimationEnabled.toggle()
+    }
+    
+    @objc func didTapIndicatorView(_ sender: PresentationIndicatorView) {
+        let vc = UIViewController()
+        vc.modalPresentationStyle = UIModalPresentationStyle.popover
+        vc.view.backgroundColor = .systemGray4
+        
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isEditable = false
+        textView.isSelectable = false
+        textView.text = "Indicator type: \(sender.indicator.currentActivity.style)\nIndicator size: \(sender.indicator.currentActivity.size)"
+        textView.textColor = .white
+        textView.backgroundColor = vc.view.backgroundColor
+        textView.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        
+        vc.view.addSubview(textView)
+        
+        textView.leadingAnchor.constraint(equalTo: vc.view.leadingAnchor, constant: 10).isActive = true
+        textView.trailingAnchor.constraint(equalTo: vc.view.trailingAnchor, constant: -10).isActive = true
+        textView.topAnchor.constraint(equalTo: vc.view.topAnchor, constant: 5).isActive = true
+        textView.bottomAnchor.constraint(equalTo: vc.view.bottomAnchor, constant: -5).isActive = true
+        
+        if let popoverController = vc.popoverPresentationController {
+            popoverController.delegate = self
+            popoverController.sourceView = sender
+            vc.preferredContentSize = CGSize(width: 200, height: 55)
+            
+            self.present(vc, animated: true, completion: nil)
+        }
+        
+    }
+    
+}
 
-
+extension ViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
 }
 

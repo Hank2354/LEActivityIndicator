@@ -10,6 +10,10 @@ import UIKit
 
 class GradientActivityIndicator: UIView, LEActivity {
     
+    // MARK: - Information
+    var style: LEActivityStyle = .gradient
+    var size: LEActivitySize
+    
     // MARK: - Internal properties
     let blockAnimateDuration: CFTimeInterval = 0.5
     
@@ -23,6 +27,7 @@ class GradientActivityIndicator: UIView, LEActivity {
     
     // MARK: - Init
     required init(size: LEActivitySize, colorSet: LEActivityColorSet) {
+        self.size = size
         super.init(frame: CGRect(origin: .zero,
                                  size: size.getCurrentSize()))
         backgroundColor = .clear
@@ -65,37 +70,37 @@ class GradientActivityIndicator: UIView, LEActivity {
         startColor = colorSet.mainColor
         endColor = colorSet.secondMainColor
     }
-
+    
     override func draw(_ rect: CGRect) {
         
         let circularRect: CGRect = .init(origin: .zero,
                                          size: .init(width: self.frame.size.width - lineWidth,
                                                      height: self.frame.size.height - lineWidth))
-
+        
         var currentAngle: CGFloat = 0.0
-
+        
         for i in stride(from:CGFloat(0.0), through: CGFloat(1.0), by: CGFloat(0.005)) {
-
+            
             let arcPoint: CGPoint = CGPoint(x: rect.width/2, y: rect.height/2)
             let arcRadius: CGFloat = circularRect.width/2
             let arcStartAngle: CGFloat = -CGFloat.pi/2
             let arcEndAngle: CGFloat = i * 2.0 * CGFloat.pi - CGFloat.pi/2
-
+            
             if currentAngle == 0.0 {
                 currentAngle = arcStartAngle
             } else {
                 currentAngle = arcEndAngle - 0.05
             }
-
+            
             let arc: UIBezierPath = UIBezierPath(arcCenter: arcPoint,
                                                  radius: arcRadius,
                                                  startAngle: currentAngle,
                                                  endAngle: arcEndAngle,
                                                  clockwise: true)
-
+            
             let strokeColor: UIColor = getGradientPointColor(ratio: i, startColor: startColor, endColor: endColor)
             strokeColor.setStroke()
-
+            
             arc.lineWidth = lineWidth
             arc.lineCapStyle = CGLineCap.butt
             arc.stroke()

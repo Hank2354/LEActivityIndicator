@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-final class PresentationIndicatorView: UIView {
+final class PresentationIndicatorView: UIControl {
     
-    private var indicator: LEActivityIndicator!
+    var indicator: LEActivityIndicator!
     
     init(indicator: LEActivityIndicator) {
         self.indicator = indicator
@@ -20,8 +20,8 @@ final class PresentationIndicatorView: UIView {
         setupSubviews()
         setupLayout()
         
+        indicator.isUserInteractionEnabled = false
         indicator.showActivityIndicator()
-        indicator.backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {
@@ -40,5 +40,19 @@ final class PresentationIndicatorView: UIView {
     fileprivate func setupLayout() {
         indicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         indicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            if isHighlighted {
+                UIView.animate(withDuration: 0.1, delay: 0, options: .allowAnimatedContent, animations: {
+                    self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                }, completion: nil)
+            } else {
+                UIView.animate(withDuration: 0.1, delay: 0.075, options: .allowAnimatedContent, animations: {
+                    self.transform = CGAffineTransform(scaleX: 1, y: 1)
+                }, completion: nil)
+            }
+        }
     }
 }
