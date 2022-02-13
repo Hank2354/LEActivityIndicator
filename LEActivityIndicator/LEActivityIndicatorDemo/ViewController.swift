@@ -12,9 +12,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .gray
-        let someView = LEActivityIndicator(style: .wave,
+        let someView = LEActivityIndicator(style: .defaultStyle,
                                            size: .large,
-                                           colorSet: .init(mainColor: .red,
+                                           colorSet: .init(mainColor: .blue,
                                                            secondMainColor: .green,
                                                            complementaryColor: .blue))
         view.addSubview(someView)

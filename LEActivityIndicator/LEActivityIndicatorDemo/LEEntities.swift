@@ -28,7 +28,7 @@ import UIKit
  
  - **line**: a linear indicator, inside which a small line moves to the right and to the left
  
- - **???**: Some description
+ - **defaultStyle**: Default style for activity indicator
 
  */
 enum LEActivityStyle {
@@ -39,6 +39,7 @@ enum LEActivityStyle {
     case wave
     case bouble
     case line
+    case defaultStyle
 }
 
 /**
