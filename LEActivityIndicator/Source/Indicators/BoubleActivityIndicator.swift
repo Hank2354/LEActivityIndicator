@@ -27,7 +27,7 @@ class BoubleActivityIndicator: UIView, LEActivity {
                                  size: size.getCurrentSize()))
         backgroundColor = .clear
         
-        configureLayers(size)
+        configureLayers()
         setupColors(colorSet)
         transformInAnimation = setupTransformInAnimation()
         transformOutAnimation = setupTransformOutAnimation()
@@ -67,7 +67,7 @@ class BoubleActivityIndicator: UIView, LEActivity {
     }
     
     // MARK: - Configuration methods
-    private func configureLayers(_ size: LEActivitySize) {
+    private func configureLayers() {
         boubleLayer.frame = .init(origin: center, size: bounds.size)
         boubleLayer.position = center
         boubleLayer.cornerRadius = bounds.width / 2

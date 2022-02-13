@@ -38,6 +38,8 @@ class LEActivityIndicator: UIView {
             currentActivity = BoubleActivityIndicator(size: size, colorSet: colorSet)
         case .line:
             currentActivity = LineActivityIndicator(size: size, colorSet: colorSet)
+        case .defaultStyle:
+            currentActivity = DefaultActivityIndicator(size: size, colorSet: colorSet)
         }
         
         self.addSubview(currentActivity)

@@ -30,7 +30,7 @@ class CubeActivityIndicator: UIView, LEActivity {
                                  size: size.getCurrentSize()))
         backgroundColor = .clear
         
-        configureLayers(size)
+        configureLayers()
         setupColors(colorSet)
         moveUpAnimation = setupMoveUpAnimation()
         moveDownAnimation = setupMoveDownAnimation()
@@ -73,7 +73,7 @@ class CubeActivityIndicator: UIView, LEActivity {
     }
     
     // MARK: - Configuration methods
-    private func configureLayers(_ size: LEActivitySize) {
+    private func configureLayers() {
         leftSide = createLeftSide()
         rightSide = createRightSide()
         topSide = createTopSide()

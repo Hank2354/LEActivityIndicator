@@ -24,7 +24,7 @@ class WalkingActivityIndicator: UIView, LEActivity {
     required init(size: LEActivitySize, colorSet: LEActivityColorSet) {
     super.init(frame: CGRect(origin: .zero,
                                 size: size.getCurrentSize()))
-    configureLayers(size)
+    configureLayers()
     setupColors(colorSet)
     self.isHidden = true
 }
@@ -64,7 +64,7 @@ class WalkingActivityIndicator: UIView, LEActivity {
     }
 
     // MARK: - Configuration methods
-    private func configureLayers(_ size: LEActivitySize) {
+    private func configureLayers() {
         firstLine.frame = CGRect(origin: .zero,
                                  size: .init(width: self.frame.width * 0.2, height: self.frame.height * 0.64))
         firstLine.position.y = self.frame.midY

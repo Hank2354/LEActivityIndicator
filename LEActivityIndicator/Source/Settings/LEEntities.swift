@@ -28,7 +28,7 @@ import UIKit
  
  - **line**: a linear indicator, inside which a small line moves to the right and to the left
  
- - **???**: Some description
+ - **defaultStyle**: Default style for activity indicator
 
  */
 enum LEActivityStyle {
@@ -39,34 +39,43 @@ enum LEActivityStyle {
     case wave
     case bouble
     case line
+    case defaultStyle
 }
 
 /**
  This enum contains size options for indicators.
  
- All activity indicators in this library can take one of three size settings
+ All activity indicators in this library can take one of five size settings
  
  **Vatiants:**
  
+ - `extraSmall`: Size 10x10
  - `small`: Size 30x30
  - `medium`: Size 50x50
  - `large`: Size 70x70
+ - `extraLarge`: Size 90x90
  
-  - Note: Indicator sizes are set using this setting and are immutable, setting new sizes using constraints will break the display on the screen, and will not help change the size of the indicator
+  - Note: Indicator sizes are set using this setting and are immutable, setting new sizes using constraints will break the display on the screen, and will not change the size of the indicator
  */
 enum LEActivitySize {
+    case extraSmall
     case small
     case medium
     case large
+    case extraLarge
     
     func getCurrentSize() -> CGSize {
         switch self {
+        case .extraSmall:
+            return CGSize(width: 10, height: 10)
         case .small:
             return CGSize(width: 30, height: 30)
         case .medium:
             return CGSize(width: 50, height: 50)
         case .large:
             return CGSize(width: 70, height: 70)
+        case .extraLarge:
+            return CGSize(width: 90, height: 90)
         }
     }
 }

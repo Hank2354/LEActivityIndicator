@@ -27,7 +27,7 @@ class GradientActivityIndicator: UIView, LEActivity {
                                  size: size.getCurrentSize()))
         backgroundColor = .clear
         
-        configureLayers(size)
+        configureLayers()
         setupColors(colorSet)
         rotateAnimation = setupRotateAnimation()
         self.isHidden = true
@@ -57,7 +57,7 @@ class GradientActivityIndicator: UIView, LEActivity {
     }
     
     // MARK: - Configuration methods
-    private func configureLayers(_ size: LEActivitySize) {
+    private func configureLayers() {
         lineWidth = self.frame.size.width / 10
     }
     
