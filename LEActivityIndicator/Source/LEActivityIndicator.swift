@@ -13,6 +13,9 @@ protocol LEActivity: UIView {
     func hideActivity()
     
     init(size: LEActivitySize, colorSet: LEActivityColorSet)
+    
+    var style: LEActivityStyle { get }
+    var size: LEActivitySize { get }
 }
 
 class LEActivityIndicator: UIView {

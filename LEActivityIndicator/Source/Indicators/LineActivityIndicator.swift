@@ -10,6 +10,10 @@ import UIKit
 
 class LineActivityIndicator: UIView, LEActivity {
     
+    // MARK: - Information
+    var style: LEActivityStyle = .line
+    var size: LEActivitySize
+    
     // MARK: - Internal properties
     let blockAnimateDuration: CFTimeInterval = 0.3
     
@@ -24,6 +28,7 @@ class LineActivityIndicator: UIView, LEActivity {
     
     // MARK: - Init
     required init(size: LEActivitySize, colorSet: LEActivityColorSet) {
+        self.size = size
         super.init(frame: CGRect(origin: .zero,
                                  size: size.getCurrentSize()))
         backgroundColor = .clear
@@ -71,7 +76,7 @@ class LineActivityIndicator: UIView, LEActivity {
     private func configureLayers() {
         // SETUP BACKGROUND LAYER
         backgroundLayer.frame = CGRect(origin: .zero, size: .init(width: bounds.width,
-                                                             height: bounds.height / 10))
+                                                                  height: bounds.height / 10))
         
         backgroundLayer.position = .init(x: bounds.midX, y: bounds.midY)
         
@@ -81,7 +86,7 @@ class LineActivityIndicator: UIView, LEActivity {
         // SETUP INPUT LAYER
         inputLayer.frame = CGRect(origin: .zero,
                                   size: .init(width: backgroundLayer.bounds.width / 5,
-                                                             height: backgroundLayer.bounds.height))
+                                              height: backgroundLayer.bounds.height))
         
         inputLayer.position = .init(x: backgroundLayer.bounds.minX,
                                     y: backgroundLayer.bounds.midY)

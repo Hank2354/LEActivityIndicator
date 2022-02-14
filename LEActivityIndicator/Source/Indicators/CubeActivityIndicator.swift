@@ -10,6 +10,10 @@ import UIKit
 
 class CubeActivityIndicator: UIView, LEActivity {
     
+    // MARK: - Information
+    var style: LEActivityStyle = .cube
+    var size: LEActivitySize
+    
     // MARK: - Internal properties
     let blockAnimateDuration: CFTimeInterval = 0.6
     
@@ -26,6 +30,7 @@ class CubeActivityIndicator: UIView, LEActivity {
     
     // MARK: - Init
     required init(size: LEActivitySize, colorSet: LEActivityColorSet) {
+        self.size = size
         super.init(frame: CGRect(origin: .zero,
                                  size: size.getCurrentSize()))
         backgroundColor = .clear
@@ -34,7 +39,6 @@ class CubeActivityIndicator: UIView, LEActivity {
         setupColors(colorSet)
         moveUpAnimation = setupMoveUpAnimation()
         moveDownAnimation = setupMoveDownAnimation()
-        moveDownAnimation.beginTime = CACurrentMediaTime() + blockAnimateDuration / 2
         rotateAnimation = setupRotateAnimation()
         self.isHidden = true
     }
@@ -50,6 +54,7 @@ class CubeActivityIndicator: UIView, LEActivity {
         self.isHidden = false
         isAnimationStarted = true
         self.layer.add(self.moveUpAnimation, forKey: nil)
+        self.moveDownAnimation.beginTime = CACurrentMediaTime() + self.blockAnimateDuration / 2
         self.layer.add(self.moveDownAnimation, forKey: nil)
         self.layer.add(self.rotateAnimation, forKey: nil)
         timer = Timer.scheduledTimer(withTimeInterval: blockAnimateDuration * 1.5, repeats: true) { _ in
@@ -67,9 +72,10 @@ class CubeActivityIndicator: UIView, LEActivity {
         self.isHidden = true
         isAnimationStarted = false
         
+        
+        self.layer.removeAllAnimations()
         timer?.invalidate()
         timer = nil
-        self.layer.removeAllAnimations()
     }
     
     // MARK: - Configuration methods
@@ -147,8 +153,8 @@ class CubeActivityIndicator: UIView, LEActivity {
     
     private func setupMoveUpAnimation() -> CABasicAnimation {
         let moveUpAnimtation = CABasicAnimation(keyPath: "position.y")
-        moveUpAnimtation.fromValue = 0
-        moveUpAnimtation.toValue = -20
+        moveUpAnimtation.fromValue = bounds.midY
+        moveUpAnimtation.toValue = -1
         moveUpAnimtation.duration = blockAnimateDuration / 2
         moveUpAnimtation.fillMode = .forwards
         moveUpAnimtation.isRemovedOnCompletion = false
@@ -157,8 +163,8 @@ class CubeActivityIndicator: UIView, LEActivity {
     
     private func setupMoveDownAnimation() -> CABasicAnimation {
         let moveDownAnimtation = CABasicAnimation(keyPath: "position.y")
-        moveDownAnimtation.fromValue = -20
-        moveDownAnimtation.toValue = 0
+        moveDownAnimtation.fromValue = -1
+        moveDownAnimtation.toValue = bounds.midY
         moveDownAnimtation.duration = blockAnimateDuration / 2
         moveDownAnimtation.fillMode = .forwards
         moveDownAnimtation.isRemovedOnCompletion = false

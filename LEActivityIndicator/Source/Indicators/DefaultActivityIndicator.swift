@@ -10,6 +10,10 @@ import UIKit
 
 class DefaultActivityIndicator: UIView, LEActivity {
     
+    // MARK: - Information
+    var style: LEActivityStyle = .defaultStyle
+    var size: LEActivitySize
+    
     // MARK: - Internal properties
     let blockAnimateDuration: CFTimeInterval = 1
     
@@ -21,6 +25,7 @@ class DefaultActivityIndicator: UIView, LEActivity {
     
     // MARK: - Init
     required init(size: LEActivitySize, colorSet: LEActivityColorSet) {
+        self.size = size
         super.init(frame: CGRect(origin: .zero,
                                  size: size.getCurrentSize()))
         backgroundColor = .clear
@@ -56,7 +61,12 @@ class DefaultActivityIndicator: UIView, LEActivity {
     
     // MARK: - Configuration methods
     private func configureLayers() {
-        let path = UIBezierPath(arcCenter: self.center, radius: self.frame.size.width / 2, startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+        let path = UIBezierPath(arcCenter: self.center,
+                                radius: (self.frame.size.width / 2) - (self.frame.size.width / 15),
+                                startAngle: CGFloat(0),
+                                endAngle: CGFloat(Double.pi * 2),
+                                clockwise: true)
+        
         circleLayer.path = path.cgPath
         circleLayer.fillColor = UIColor.clear.cgColor
         circleLayer.lineWidth = self.frame.size.width / 15

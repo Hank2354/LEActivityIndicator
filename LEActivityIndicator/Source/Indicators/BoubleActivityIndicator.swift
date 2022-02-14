@@ -10,6 +10,10 @@ import UIKit
 
 class BoubleActivityIndicator: UIView, LEActivity {
     
+    // MARK: - Information
+    var style: LEActivityStyle = .bouble
+    var size: LEActivitySize
+    
     // MARK: - Internal properties
     let blockAnimateDuration: CFTimeInterval = 0.3
     
@@ -23,6 +27,7 @@ class BoubleActivityIndicator: UIView, LEActivity {
     
     // MARK: - Init
     required init(size: LEActivitySize, colorSet: LEActivityColorSet) {
+        self.size = size
         super.init(frame: CGRect(origin: .zero,
                                  size: size.getCurrentSize()))
         backgroundColor = .clear

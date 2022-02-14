@@ -10,6 +10,10 @@ import UIKit
 
 class SpinnerActivityIndicator: UIView, LEActivity {
     
+    // MARK: - Information
+    var style: LEActivityStyle = .spinner
+    var size: LEActivitySize
+    
     // MARK: - Internal properties
     let blockAnimateDuration: CFTimeInterval = 0.5
     
@@ -21,6 +25,7 @@ class SpinnerActivityIndicator: UIView, LEActivity {
     
     // MARK: - Init
     required init(size: LEActivitySize, colorSet: LEActivityColorSet) {
+        self.size = size
         super.init(frame: CGRect(origin: .zero,
                                  size: size.getCurrentSize()))
         configureLayers()
@@ -54,12 +59,22 @@ class SpinnerActivityIndicator: UIView, LEActivity {
     
     // MARK: - Configuration methods
     private func configureLayers() {
-        let mainCirclePath = UIBezierPath(arcCenter: self.center, radius: self.frame.size.width / 2, startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+        let mainCirclePath = UIBezierPath(arcCenter: self.center,
+                                          radius: (self.frame.size.width / 2) - (self.frame.size.width / 15),
+                                          startAngle: CGFloat(0),
+                                          endAngle: CGFloat(Double.pi * 2),
+                                          clockwise: true)
+        
         mainCircleShapeLayer.path = mainCirclePath.cgPath
         mainCircleShapeLayer.fillColor = UIColor.clear.cgColor
         mainCircleShapeLayer.lineWidth = self.frame.size.width / 15
         
-        let secondCirclePath = UIBezierPath(arcCenter: self.center, radius: self.frame.size.width / 2, startAngle: CGFloat(Double.pi * 3 / 2), endAngle: CGFloat(0), clockwise: true)
+        let secondCirclePath = UIBezierPath(arcCenter: self.center,
+                                            radius: (self.frame.size.width / 2) - (self.frame.size.width / 15),
+                                            startAngle: CGFloat(Double.pi * 3 / 2),
+                                            endAngle: CGFloat(0),
+                                            clockwise: true)
+        
         secondCircleShapeLayer.path = secondCirclePath.cgPath
         secondCircleShapeLayer.fillColor = UIColor.clear.cgColor
         secondCircleShapeLayer.lineWidth = self.frame.size.width / 15
@@ -83,5 +98,5 @@ class SpinnerActivityIndicator: UIView, LEActivity {
         animation.repeatCount = HUGE
         return animation
     }
-
+    
 }
