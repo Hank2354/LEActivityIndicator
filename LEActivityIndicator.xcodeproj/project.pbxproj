@@ -59,14 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4188909F27B935B300EC64FE /* Source */ = {
+		4116382E27F8CAC700AB7A8F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				418890A127B935E700EC64FE /* Indicators */,
 				418890A027B935CB00EC64FE /* Settings */,
 				41A382B127AFD4CF007E3697 /* LEActivityIndicator.swift */,
 			);
-			path = Source;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		418890A027B935CB00EC64FE /* Settings */ = {
@@ -96,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				41E4E94127AC6DFD004FC90E /* LEActivityIndicator */,
+				4116382E27F8CAC700AB7A8F /* Classes */,
+				41E4E95727AC6E66004FC90E /* Resourses */,
 				41E4E95927AC6EE8004FC90E /* .gitignore */,
 				41E4E94027AC6DFD004FC90E /* Products */,
 			);
@@ -112,9 +114,7 @@
 		41E4E94127AC6DFD004FC90E /* LEActivityIndicator */ = {
 			isa = PBXGroup;
 			children = (
-				4188909F27B935B300EC64FE /* Source */,
 				41E4E95827AC6E82004FC90E /* LEActivityIndicatorDemo */,
-				41E4E95727AC6E66004FC90E /* Resourses */,
 				41E4E95627AC6E57004FC90E /* Supporting files */,
 			);
 			path = LEActivityIndicator;
