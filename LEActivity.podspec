@@ -7,9 +7,9 @@ Pod::Spec.new do |s|
   s.homepage              = "https://github.com/Hank2354/LEActivityIndicator"
   s.license               = { :type => 'MIT', :file => 'LICENSE' }
   s.author                = { "Hank3465" => "resly34@yandex.ru" }
-  s.platform              = :ios
+  s.platform              = :ios, 13.0
   s.source                = { :git => "https://github.com/Hank2354/LEActivityIndicator.git", :tag => "#{s.version}" }
-  s.source_files          = 'Classes/*'
+  s.source_files          = 'Classes/**/*'
   s.framework             = 'Foundation'
   s.requires_arc          = true
 
