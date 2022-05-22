@@ -102,5 +102,17 @@ public struct LEActivityColorSet {
     let mainColor:          UIColor
     let secondMainColor:    UIColor
     let complementaryColor: UIColor?
+    
+    public init(mainColor: UIColor, secondMainColor: UIColor, complementaryColor: UIColor?) {
+        self.mainColor = mainColor
+        self.secondMainColor = secondMainColor
+        self.complementaryColor = complementaryColor
+    }
+    
+    public init(mainColor: UIColor, secondMainColor: UIColor) {
+        self.init(mainColor: mainColor,
+                  secondMainColor: secondMainColor,
+                  complementaryColor: nil)
+    }
 }
 
