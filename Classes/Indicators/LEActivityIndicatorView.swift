@@ -18,7 +18,7 @@ protocol LEActivity: UIView {
     var size: LEActivitySize { get }
 }
 
-class LEActivityIndicator: UIView {
+class LEActivityIndicatorView: UIView {
     
     var currentActivity: LEActivity!
     

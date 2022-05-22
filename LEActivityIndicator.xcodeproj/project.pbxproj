@@ -14,7 +14,7 @@
 		4188909E27B9117A00EC64FE /* DefaultActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188909D27B9117A00EC64FE /* DefaultActivityIndicator.swift */; };
 		418890A327B938A000EC64FE /* PresentationIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418890A227B938A000EC64FE /* PresentationIndicatorView.swift */; };
 		41A382AF27AF0AB2007E3697 /* WalkingActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A382AE27AF0AB2007E3697 /* WalkingActivityIndicator.swift */; };
-		41A382B227AFD4CF007E3697 /* LEActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A382B127AFD4CF007E3697 /* LEActivityIndicator.swift */; };
+		41A382B227AFD4CF007E3697 /* LEActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A382B127AFD4CF007E3697 /* LEActivityIndicatorView.swift */; };
 		41A382B427AFFCA5007E3697 /* LEEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A382B327AFFCA5007E3697 /* LEEntities.swift */; };
 		41A382B627B011DD007E3697 /* SpinnerActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A382B527B011DC007E3697 /* SpinnerActivityIndicator.swift */; };
 		41A382B827B02F3D007E3697 /* GradientActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A382B727B02F3D007E3697 /* GradientActivityIndicator.swift */; };
@@ -34,7 +34,7 @@
 		4188909D27B9117A00EC64FE /* DefaultActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultActivityIndicator.swift; sourceTree = "<group>"; };
 		418890A227B938A000EC64FE /* PresentationIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationIndicatorView.swift; sourceTree = "<group>"; };
 		41A382AE27AF0AB2007E3697 /* WalkingActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingActivityIndicator.swift; sourceTree = "<group>"; };
-		41A382B127AFD4CF007E3697 /* LEActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEActivityIndicator.swift; sourceTree = "<group>"; };
+		41A382B127AFD4CF007E3697 /* LEActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEActivityIndicatorView.swift; sourceTree = "<group>"; };
 		41A382B327AFFCA5007E3697 /* LEEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEEntities.swift; sourceTree = "<group>"; };
 		41A382B527B011DC007E3697 /* SpinnerActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerActivityIndicator.swift; sourceTree = "<group>"; };
 		41A382B727B02F3D007E3697 /* GradientActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientActivityIndicator.swift; sourceTree = "<group>"; };
@@ -64,7 +64,6 @@
 			children = (
 				418890A127B935E700EC64FE /* Indicators */,
 				418890A027B935CB00EC64FE /* Settings */,
-				41A382B127AFD4CF007E3697 /* LEActivityIndicator.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -80,6 +79,7 @@
 		418890A127B935E700EC64FE /* Indicators */ = {
 			isa = PBXGroup;
 			children = (
+				41A382B127AFD4CF007E3697 /* LEActivityIndicatorView.swift */,
 				41A382AE27AF0AB2007E3697 /* WalkingActivityIndicator.swift */,
 				41A382B527B011DC007E3697 /* SpinnerActivityIndicator.swift */,
 				41A382B727B02F3D007E3697 /* GradientActivityIndicator.swift */,
@@ -225,7 +225,7 @@
 				4188909827B8226A00EC64FE /* LineActivityIndicator.swift in Sources */,
 				41A382B827B02F3D007E3697 /* GradientActivityIndicator.swift in Sources */,
 				41E4E94727AC6DFD004FC90E /* ViewController.swift in Sources */,
-				41A382B227AFD4CF007E3697 /* LEActivityIndicator.swift in Sources */,
+				41A382B227AFD4CF007E3697 /* LEActivityIndicatorView.swift in Sources */,
 				41A382B427AFFCA5007E3697 /* LEEntities.swift in Sources */,
 				41E4E94327AC6DFD004FC90E /* AppDelegate.swift in Sources */,
 				4188909A27B82D8400EC64FE /* BoubleActivityIndicator.swift in Sources */,
