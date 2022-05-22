@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name                  = "LEActivity"
-  s.version               = "0.0.2"
+  s.version               = "1.0.0"
   s.summary               = "Custom UIActivityIndicators with comfortable interface"
   s.homepage              = "https://github.com/Hank2354/LEActivityIndicator"
 
