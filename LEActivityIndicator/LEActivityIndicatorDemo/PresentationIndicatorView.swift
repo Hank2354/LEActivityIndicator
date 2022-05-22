@@ -10,9 +10,9 @@ import UIKit
 
 final class PresentationIndicatorView: UIControl {
     
-    var indicator: LEActivityIndicator!
+    var indicator: LEActivityIndicatorView!
     
-    init(indicator: LEActivityIndicator) {
+    init(indicator: LEActivityIndicatorView) {
         self.indicator = indicator
         super.init(frame: .zero)
         

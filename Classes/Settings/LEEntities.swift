@@ -54,6 +54,7 @@ enum LEActivityStyle {
  - `medium`: Size 50x50
  - `large`: Size 70x70
  - `extraLarge`: Size 90x90
+ - `custom` Set custom size (CGSize)
  
   - Note: Indicator sizes are set using this setting and are immutable, setting new sizes using constraints will break the display on the screen, and will not change the size of the indicator
  */
@@ -63,6 +64,7 @@ enum LEActivitySize {
     case medium
     case large
     case extraLarge
+    case custom(CGSize)
     
     func getCurrentSize() -> CGSize {
         switch self {
@@ -76,6 +78,8 @@ enum LEActivitySize {
             return CGSize(width: 70, height: 70)
         case .extraLarge:
             return CGSize(width: 90, height: 90)
+        case .custom(let size):
+            return size
         }
     }
 }
