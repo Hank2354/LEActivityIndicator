@@ -18,11 +18,11 @@ protocol LEActivity: UIView {
     var size: LEActivitySize { get }
 }
 
-class LEActivityIndicatorView: UIView {
+public class LEActivityIndicatorView: UIView {
     
     var currentActivity: LEActivity!
     
-    init(style: LEActivityStyle, size: LEActivitySize, colorSet: LEActivityColorSet) {
+    public init(style: LEActivityStyle, size: LEActivitySize, colorSet: LEActivityColorSet) {
         super.init(frame: CGRect(origin: .zero, size: size.getCurrentSize()))
         setupLayoutSetting()
         
@@ -52,11 +52,11 @@ class LEActivityIndicatorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func showActivityIndicator() {
+    public func showActivityIndicator() {
         currentActivity.showActivity()
     }
     
-    func hideActivityIndicator() {
+    public func hideActivityIndicator() {
         currentActivity.hideActivity()
     }
     

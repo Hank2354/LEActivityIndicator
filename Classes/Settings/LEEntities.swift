@@ -31,7 +31,7 @@ import UIKit
  - **defaultStyle**: Default style for activity indicator
 
  */
-enum LEActivityStyle {
+public enum LEActivityStyle {
     case walking
     case spinner
     case gradient
@@ -58,7 +58,7 @@ enum LEActivityStyle {
  
   - Note: Indicator sizes are set using this setting and are immutable, setting new sizes using constraints will break the display on the screen, and will not change the size of the indicator
  */
-enum LEActivitySize {
+public enum LEActivitySize {
     case extraSmall
     case small
     case medium
@@ -98,7 +98,7 @@ enum LEActivitySize {
  **Notes:**
  1. If `complementaryColor` parameter equal nil, for indicator where use three colors in palete will be set main color instead complementary
 */
-struct LEActivityColorSet {
+public struct LEActivityColorSet {
     let mainColor:          UIColor
     let secondMainColor:    UIColor
     let complementaryColor: UIColor?
