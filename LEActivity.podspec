@@ -13,15 +13,7 @@ Pod::Spec.new do |s|
   s.source                = { :git => "https://github.com/Hank2354/LEActivityIndicator.git",
                               :tag => "#{s.version}" }
 
-  s.subspec 'Indicators' do |ss|
-    ss.source_files = 'Classes/Indicators/**/*.swift'
-  end
-
-  s.subspec 'Settings' do |ss|
-    ss.source_files = 'Classes/Settings/**/*.swift'
-  end
-
-  s.default_subspec = 'Indicators'
+  s.source_files = 'Classes/**/*.swift'
 
   s.framework             = 'Foundation', 'UIKit'
   s.requires_arc          = true
