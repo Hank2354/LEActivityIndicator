@@ -1,7 +1,7 @@
 ![]()
 
 # :large_orange_diamond: LEActivityIndicator :large_orange_diamond:
-Collection of activity indicators with a beautiful and user-friendly interface
+Collection of activity indicators with a beautiful and user-friendly interface 
 
 - [About project](#About-project-warning)
 - [Framework options](#Framework-options-bookmark_tabs)
