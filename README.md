@@ -61,6 +61,31 @@ let indicator = LEActivityIndicatorView(style: style, size: size, colorSet: colo
 
 ## Installation
 
+#### Swift Package Manager
+
+You can add the framework directly to your Project in Xcode in the `Package Dependencies` section. Or, as a dependency of a package in your `Package.swift` file:
+
+```swift
+// ...
+
+let package = Package(
+    // ...Rest of the properties...
+    dependencies: [
+        .package(url: "https://github.com/Hank2354/LEActivityIndicator", branch: "main"),
+    ],
+    targets: [
+        .target(
+            name: "MyPackage",
+            dependencies: [
+                .product(name: "LEActivityIndicator", package: "LEActivityIndicator"),
+            ],
+            path: "Sources"
+        ),
+    ]
+)
+
+```
+
 #### Cocoapods
 
 [Cocoapods](https://cocoapods.org/#install) is a dependency manager for Swift and Objective-C Cocoa projects. To use LEActivityIndicator with CocoaPods, add it in your `Podfile`.
