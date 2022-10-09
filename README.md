@@ -66,7 +66,7 @@ let indicator = LEActivityIndicatorView(style: style, size: size, colorSet: colo
 [Cocoapods](https://cocoapods.org/#install) is a dependency manager for Swift and Objective-C Cocoa projects. To use LEActivityIndicator with CocoaPods, add it in your `Podfile`.
 
 ```ruby
-pod 'LEActivityIndicator'
+pod 'LEActivity'
 ```
 
 ## Control :video_game:
